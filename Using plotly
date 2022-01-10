@@ -1,0 +1,7 @@
+def Google_plot(df):
+    #Using plotly
+    import plotly.express as px
+    import pandas as pd
+    fig = px.scatter_geo(df,lat='Lat (degrees)',lon='Lon (degrees)', hover_name="Speed (m/s)")
+    fig.update_layout(title = 'World map', title_x=0.5)
+    return fig.show()
