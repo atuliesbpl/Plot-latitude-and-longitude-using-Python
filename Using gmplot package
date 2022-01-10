@@ -1,0 +1,13 @@
+def Google_map_plot(df,filename):
+    import pandas as pd
+    import gmplot
+    if isinstance(df,str):
+        df = pd.read_csv(df)
+    gmap3 = gmplot.GoogleMapPlotter(df['Lat (degrees)'][0],df['Lon (degrees)'][0], 13)
+    # scatter method of map object 
+    # scatter points on the google map
+    gmap3.scatter(df['Lat (degrees)'],df['Lon (degrees)'],size = 40, marker = False,color='blue')
+    # Plot method Draw a line in between given coordinates
+    gmap3.plot(df['Lat (degrees)'],df['Lon (degrees)'],'cornflowerblue', edge_width = 2.5)
+    # Saving
+    return gmap3.draw(filename+'.html')
